@@ -1,0 +1,16 @@
+# Секреты
+.env
+
+# Окружение и кэш Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# База данных (создаётся автоматически)
+instance/
+*.db
+
+# IDE
+.idea/
+.vscode/

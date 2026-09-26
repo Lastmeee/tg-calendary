@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Календарь{% endblock %}</title>
+    <style>
+        :root {
+            --ink: #1f2a44;
+            --muted: #6b7489;
+            --paper: #fbfbf8;
+            --line: #d9dce3;
+            --accent: #2f6fdf;
+            --danger: #c0392b;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Roboto, Arial, sans-serif;
+            color: var(--ink);
+            background: var(--paper);
+            line-height: 1.5;
+        }
+        main { max-width: 640px; margin: 0 auto; padding: 32px 20px; }
+        h1 { font-size: 1.75rem; margin: 0 0 24px; }
+        a { color: var(--accent); }
+        .flash { background: #eaf1fd; border-left: 4px solid var(--accent); padding: 10px 14px; margin-bottom: 20px; }
+        .button {
+            display: inline-block; padding: 9px 18px; border: 0; border-radius: 6px;
+            background: var(--accent); color: #fff; font: inherit; text-decoration: none; cursor: pointer;
+        }
+        .button:focus-visible, input:focus-visible { outline: 3px solid #9dbbf2; outline-offset: 2px; }
+        label { display: block; font-weight: 600; margin-bottom: 6px; }
+        input { width: 100%; padding: 9px 10px; border: 1px solid var(--line); border-radius: 6px; font: inherit; margin-bottom: 18px; }
+    </style>
+</head>
+<body>
+    <main>
+        {% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+                <div class="flash">{{ message }}</div>
+            {% endfor %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

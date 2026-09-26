@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Новое событие{% endblock %}
+
+{% block content %}
+<h1>Новое событие</h1>
+
+<form method="POST">
+    <label for="title">Название</label>
+    <input id="title" type="text" name="title" maxlength="150" placeholder="Например: тренировка" required>
+
+    <label for="event_time">Дата и время</label>
+    <input id="event_time" type="datetime-local" name="event_time" required>
+
+    <button class="button" type="submit">Сохранить событие</button>
+    <a href="{{ url_for('events_list') }}" style="margin-left: 12px;">Отмена</a>
+</form>
+{% endblock %}
